@@ -1,0 +1,62 @@
+-- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
+--
+-- Host: localhost    Database: shoponline
+-- ------------------------------------------------------
+-- Server version	8.0.31
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orders` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `total` decimal(10,2) NOT NULL,
+  `quantity` int DEFAULT NULL,
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `user_id` int unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `payment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `orders_user_id_foreign` (`user_id`),
+  CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (1,'Phuongnghia Ninh','0868195800','Ninh Bình',800.00,8,'1',2,'2023-05-06 20:08:30','2023-05-09 09:31:40','0'),(2,'Phuongnghia Ninh','0868195800','Ninh Bình',400.00,4,'0',2,'2023-05-07 07:33:38','2023-05-07 07:33:38','0'),(3,'Phuongnghia Ninh','0868195800','Ninh Bình',16000900.00,13,'0',2,'2023-05-07 08:31:58','2023-05-07 08:31:58','0'),(4,'Phuongnghia Ninh','0868195800','Ninh Bình',16000900.00,13,'0',2,'2023-05-07 08:32:39','2023-05-07 08:32:39','0'),(5,'Phuongnghia Ninh','0868195800','Ninh Bình',16000900.00,13,'0',2,'2023-05-07 08:33:20','2023-05-07 08:33:20','0'),(6,'Phuongnghia Ninh','0868195800','Ninh Bình',16000900.00,13,'0',2,'2023-05-07 08:38:10','2023-05-07 08:38:10','0'),(7,'- B19DCCN516_Ninh Thị Phượng','0773337669','112 Trần Phú, Hà Đông',300.00,3,'1',5,'2023-05-09 09:33:28','2023-05-09 09:34:20','0'),(8,'Phuongnghia Ninh',NULL,NULL,400.00,4,'0',2,'2023-05-10 07:23:01','2023-05-10 07:23:01','0'),(9,'Nguyên A','1234567890000','Hà nội',4000000.00,1,'0',6,'2023-05-10 08:56:20','2023-05-10 08:56:20','0'),(10,'Nguyên A','1234567890000','Hà nội',4000000.00,1,'1',6,'2023-05-10 08:57:11','2023-05-10 08:57:11','1'),(11,'Nguyên A','1234567890000','Hà nội',4000000.00,1,'1',6,'2023-05-10 08:57:38','2023-05-10 08:57:38','1'),(12,'Nguyên A','1234567890000','Hà nội',4000000.00,1,'1',6,'2023-05-10 08:58:33','2023-05-10 08:58:33','1'),(13,'Nguyên A','1234567890000','Hà nội',4000000.00,1,'1',6,'2023-05-10 08:59:21','2023-05-10 08:59:21','1'),(14,'Nguyên A','1234567890000','Hà nội',4000000.00,1,'1',6,'2023-05-10 09:00:20','2023-05-10 09:00:20','1'),(15,'Nguyên A','1234567890000','Hà nội',4000000.00,1,'1',6,'2023-05-10 09:01:44','2023-05-10 09:01:44','1'),(16,'Nguyên A','1234567890000','Hà nội',4000000.00,1,'1',6,'2023-05-10 09:03:09','2023-05-10 09:03:09','1'),(17,'Nguyên A','1234567890000','Hà nội',4000000.00,1,'1',6,'2023-05-10 09:05:43','2023-05-10 09:05:43','1'),(18,'Nguyên A',NULL,NULL,4000000.00,1,'1',6,'2023-05-10 09:13:21','2023-05-10 09:13:21','1'),(19,'Nguyên A','1234567890000','Hà nội',4000000.00,1,'1',6,'2023-05-10 09:24:16','2023-05-10 09:24:16','1'),(20,'Nguyên A','1234567890000','Hà nội',4000000.00,1,'1',6,'2023-05-10 09:27:28','2023-05-10 09:27:28','1'),(21,'Nguyên A','1234567890000','Hà nội',100.00,1,'1',6,'2023-05-10 09:41:30','2023-05-10 09:41:30','1'),(22,'Nguyên A',NULL,NULL,4000000.00,1,'1',6,'2023-05-10 09:42:21','2023-05-10 09:42:21','1'),(23,'Nguyên A',NULL,NULL,4000000.00,1,'1',6,'2023-05-10 09:43:39','2023-05-10 09:43:39','1'),(24,'Nguyên A',NULL,NULL,4000000.00,1,'1',6,'2023-05-10 09:56:44','2023-05-10 09:56:44','1'),(25,'Nguyên A','1234567890000','Hà nội',4000000.00,1,'1',6,'2023-05-10 10:01:35','2023-05-10 10:01:35','1'),(26,'Nguyên A','1234567890000','Hà nội',4000000.00,1,'1',6,'2023-05-10 10:07:45','2023-05-10 10:07:45','1'),(27,'Phuongnghia Ninh','1234567890000','test',200.00,2,'0',2,'2023-05-11 09:25:44','2023-05-11 09:25:44','0'),(28,'Nguyễn Bích Ngọc','0334160080','Ha Giang',12000000.00,3,'1',7,'2023-05-12 03:16:47','2023-05-12 03:16:47','1'),(29,'Nguyễn Bích Ngọc','0334160080','Ha Giang',12000000.00,3,'1',7,'2023-05-12 03:19:02','2023-05-12 03:19:02','1'),(30,'Nguyễn Bích Ngọc',NULL,'Ha Giang',200000.00,2,'1',7,'2023-05-12 04:17:47','2023-05-12 04:17:47','1'),(31,'Nguyễn Bích Ngọc',NULL,NULL,200000.00,1,'1',7,'2023-05-19 20:23:39','2023-05-19 20:23:39','1'),(32,'Ninh','0334160065','Lang Giang',450000.00,3,'1',11,'2023-05-20 08:40:30','2023-05-20 08:40:30','1');
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-05-30  5:28:27
